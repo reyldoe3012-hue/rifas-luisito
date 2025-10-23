@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rifa Luisito</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Rifa Luisito</h1>
+      <p>Compra números del 1 al 1000 — $1.50 por número</p>
+    </header>
+
+    <section class="actions">
+      <div class="buy">
+        <h2>Comprar número</h2>
+        <div class="auth">
+          <div id="authForms">
+            <div class="register">
+              <h3>Crear usuario</h3>
+              <label>Usuario: <input id="regUser" placeholder="usuario"></label>
+              <label>Contraseña: <input id="regPass" type="password" placeholder="contraseña"></label>
+              <button id="regBtn">Registrar</button>
+            </div>
+            <div class="login">
+              <h3>Entrar</h3>
+              <label>Usuario: <input id="loginUser" placeholder="usuario"></label>
+              <label>Contraseña: <input id="loginPass" type="password" placeholder="contraseña"></label>
+              <button id="loginBtn">Entrar</button>
+            </div>
+          </div>
+          <div id="userInfo" hidden>
+            <p>Conectado como: <strong id="currentUser"></strong></p>
+            <button id="logoutBtn">Cerrar sesión</button>
+          </div>
+        </div>
+
+        <label>Contacto (email o teléfono): <input id="buyerContact" placeholder="Email o teléfono"></label>
+        <label>Número (1-1000) o dejar vacío para asignar aleatorio: <input id="numberInput" type="number" min="1" max="1000"></label>
+        <button id="buyBtn">Comprar</button>
+        <p id="buyMsg" class="info"></p>
+      </div>
+
+      <div class="stats">
+        <h2>Estado</h2>
+        <p>Números vendidos: <span id="soldCount">0</span></p>
+        <p>Números disponibles: <span id="availCount">1000</span></p>
+        <button id="viewSold">Ver vendidos</button>
+      </div>
+    </section>
+
+    <section class="sold-list" hidden>
+      <h2>Lista de números vendidos</h2>
+      <input id="searchInput" placeholder="Buscar por usuario, número o contacto">
+      <ul id="soldList"></ul>
+      <button id="closeSold">Cerrar</button>
+    </section>
+
+    <section class="draw">
+      <h2>Sorteo (administrador)</h2>
+      <p>Contraseña admin: <input id="adminPass" type="password" placeholder="contraseña"></p>
+      <button id="drawBtn">Realizar sorteo</button>
+      <p class="note">Premios: Celular, Moto, TV, Cocina (licuadora) y $1000 efectivo (5 ganadores únicos)</p>
+      <div class="admin-settings">
+        <h3>Ajustes del cuenta bancaria (solo local)</h3>
+        <p class="note">Guarda aquí los datos que desees mostrar como instrucciones de pago. Estos se guardan localmente en este navegador.</p>
+        <label>Banco: <input id="bankName" placeholder="Nombre del banco"></label>
+        <label>Cuenta / Nº: <input id="bankAccount" placeholder="Número de cuenta"></label>
+        <label>Cédula / ID: <input id="bankId" placeholder="Cédula / ID"></label>
+        <label>Teléfono / Pago móvil: <input id="bankPhone" placeholder="Teléfono"></label>
+        <button id="saveBankBtn">Guardar ajustes</button>
+        <p id="bankMsg" class="info"></p>
+      </div>
+      <div id="bankDetails" class="note"></div>
+      <button id="copyBankBtn">Copiar datos de pago</button>
+      <div id="winners"></div>
+    </section>
+
+    <footer>
+      <p>Archivo local — los datos se guardan en tu navegador (localStorage). No se comparte en línea.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
